@@ -10,8 +10,9 @@ type Token struct {
 const (
 	ILLEGAL   = "ILLEGAL"
 	EOF       = "EOF"
-	IDENT     = "IDENT" // add, foobar, x, y, ...
-	INT       = "INT"   // 1343456
+	IDENT     = "IDENT"
+	INT       = "INT"
+	STRING    = "STRING"
 	ASSIGN    = "="
 	PLUS      = "+"
 	MINUS     = "-"
@@ -26,6 +27,8 @@ const (
 	RPAREN    = ")"
 	LBRACE    = "{"
 	RBRACE    = "}"
+	LBRACKET  = "["
+	RBRACKET  = "]"
 	FUNCTION  = "FUNCTION"
 	LET       = "LET"
 	TRUE      = "TRUE"
@@ -35,6 +38,7 @@ const (
 	RETURN    = "RETURN"
 	EQ        = "=="
 	NOT_EQ    = "!="
+	COLON     = ":"
 )
 
 var keywords = map[string]TokenType{
