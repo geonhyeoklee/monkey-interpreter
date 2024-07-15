@@ -16,6 +16,12 @@ type compilerTestCase struct {
 	expectedInstructions []code.Instructions
 }
 
+func parse(input string) *ast.Program {
+	l := lexer.New(input)
+	p := parser.New(l)
+	return p.ParseProgram()
+}
+
 func TestIntegerArithmetic(t *testing.T) {
 	tests := []compilerTestCase{
 		{
@@ -54,12 +60,6 @@ func runCompilerTests(t *testing.T, tests []compilerTestCase) {
 			t.Fatalf("testConstants failed: %s", err)
 		}
 	}
-}
-
-func parse(input string) *ast.Program {
-	l := lexer.New(input)
-	p := parser.New(l)
-	return p.ParseProgram()
 }
 
 func testInstructions(
